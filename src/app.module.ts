@@ -20,7 +20,7 @@ const configModule = ConfigModule.forRoot({
     PORT: Joi.number().port().default(3001),
     FRONTEND_ORIGINS: Joi.string()
       .allow('')
-      .default('http://localhost:8000,http://127.0.0.1:8000,http://localhost:5500,http://127.0.0.1:5500'),
+      .default('http://localhost:3000,http://localhost:8000,http://127.0.0.1:8000,http://localhost:5500,http://127.0.0.1:5500'),
     DB_HOST: Joi.string().allow('').default(''),
     DB_PORT: Joi.number().port().default(3306),
     DB_USER: Joi.string().allow('').default(''),

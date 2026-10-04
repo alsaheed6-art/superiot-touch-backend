@@ -9,10 +9,13 @@ const api_exception_filter_1 = require("./common/api-exception.filter");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     const config = app.get(config_1.ConfigService);
-    const allowedOrigins = new Set((config.get('FRONTEND_ORIGINS') ?? '')
-        .split(',')
-        .map((origin) => origin.trim())
-        .filter(Boolean));
+    const allowedOrigins = new Set([
+        'http://localhost:3000',
+        ...(config.get('FRONTEND_ORIGINS') ?? '')
+            .split(',')
+            .map((origin) => origin.trim())
+            .filter(Boolean),
+    ]);
     app.setGlobalPrefix('api');
     app.enableCors({
         origin: (origin, callback) => {
