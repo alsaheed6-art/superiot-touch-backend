@@ -64,13 +64,6 @@ export class ProductsController {
     @UploadedFile() file?: Express.Multer.File,
   ) {
     if (!file) throw new BadRequestException('An image file is required in the "file" field.');
-    return {
-      id,
-      file: {
-        originalName: file.originalname,
-        mimeType: file.mimetype,
-        size: file.size,
-      },
-    };
+    return this.productsService.uploadImage(id, file);
   }
 }
