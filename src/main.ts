@@ -10,6 +10,8 @@ async function bootstrap(): Promise<void> {
   const config = app.get(ConfigService);
   const allowedOrigins = new Set([
     'http://localhost:3000',
+    'https://main.d2wbg54xwuv90k.amplifyapp.com',
+    'https://main.d3ffiu5mgx8o78.amplifyapp.com',
     ...(config.get<string>('FRONTEND_ORIGINS') ?? '')
       .split(',')
       .map((origin) => origin.trim())
